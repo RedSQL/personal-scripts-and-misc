@@ -1,0 +1,2 @@
+# ~/.bashrc
+alias emacs="nvim"
