@@ -11,4 +11,7 @@
     .container-xl {
         max-width: 1800px;
     }
+    .container-lg {
+        max-width: none;
+    }
 }
