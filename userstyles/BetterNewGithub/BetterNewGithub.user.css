@@ -1,0 +1,14 @@
+/* ==UserStyle==
+@name           Better New Github
+@namespace      github.com/RedSQL/personal-scripts-and-misc
+@version        1.0.0
+@license        MIT
+@description    Seriously, Microsoft? There is so much open space left and you don't fill it in? Come on! I'm not even a designer, and I have to fix it? Really?
+@author         RedEclipse (RedSQL)
+==/UserStyle== */
+
+@-moz-document domain("github.com") {
+    .container-xl {
+        max-width: 1800px;
+    }
+}
