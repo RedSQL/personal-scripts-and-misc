@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Better New Github
 @namespace      github.com/RedSQL/personal-scripts-and-misc
-@version        1.0.2
+@version        1.0.3
 @license        MIT (But see for the latest license here: github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE)
 @description    Seriously, Microsoft? There is so much open space left and you don't fill it in? Come on! I'm not even a designer, and I have to fix it? Really?
 @author         RedEclipse (RedSQL)
@@ -9,9 +9,16 @@
 
 @-moz-document domain("github.com") {
     .container-xl {
-        max-width: 1800px;
+        max-width: 1800px !important;
     }
     .container-lg {
-        max-width: none;
+        max-width: none !important;
+    }
+    .avatar-user {
+        border-radius: 5% !important;
+    }
+    /* Unrounding status button fix */
+    .user-status-circle-badge-container {
+        margin-bottom: 0px !important;
     }
 }
