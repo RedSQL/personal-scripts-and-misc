@@ -1,0 +1,2 @@
+# Intent / Purpose of this UserStyle notice
+This UserStyle is intended for **improvement** of the new Github design. It is **not** meant to revert back the old design. If you want Github to have the "oldschool" look, [check this userstyle / extension out](https://github.com/daattali/oldschool-github-extension)! This userstyle should be compatible with the oldschool one, so if you install both userstyles, you will have my improvements + old design.
