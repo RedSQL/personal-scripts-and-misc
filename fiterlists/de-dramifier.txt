@@ -1,0 +1,27 @@
+[Adblock Plus 3.6]
+! Title: Red's Internet De-Dramifier
+! Version: 20210105_1
+! Expires: 2 days
+! Description: You ever like internet for what it is but hate drama? Well then, this list might come in handy!
+
+! Potential titles for drama
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Groom/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Groomer/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Groomed/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Grooming/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Pedo/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Allegations/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Lied/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Liar/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Exposed/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Lying/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Lie/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Manipulation/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Manipulator/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Manipulates/i))
+youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-text(/Manipulated/i))
+
+! Drama channels (that I know of)
+youtube.com###dismissable[class*="video-renderer"]:has(.ytd-channel-name:has-text(DramaAlert))
+! Not a "drama channel" per se, more of a "news channel" but sheds light to plenty of drama too
+youtube.com###dismissable[class*="video-renderer"]:has(.ytd-channel-name:has-text(Scarce))
