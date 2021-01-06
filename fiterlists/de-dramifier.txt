@@ -25,3 +25,4 @@ youtube.com#?##dismissable[class*="video-renderer"]:has([id^="video-title"]:has-
 youtube.com###dismissable[class*="video-renderer"]:has(.ytd-channel-name:has-text(DramaAlert))
 ! Not a "drama channel" per se, more of a "news channel" but sheds light to plenty of drama too
 youtube.com###dismissable[class*="video-renderer"]:has(.ytd-channel-name:has-text(Scarce))
+youtube.com###dismissable[class*="video-renderer"]:has(.ytd-channel-name:has-text(Bowblax))
