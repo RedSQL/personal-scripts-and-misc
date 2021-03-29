@@ -1,0 +1,8 @@
+! Title: YouTube De-Garbifier
+! Expires: 7 days
+! Description: Tired of 'distractions' YouTube throws at your face? This might come in handy!
+! Homepage: https://github.com/RedSQL/personal-scripts-and-misc
+! Licence: https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
+
+! Remove comment section - Seriously, YouTube, why is this a hog STILL after years of new design being implemented?
+www.youtube.com##.ytd-comments.style-scope
