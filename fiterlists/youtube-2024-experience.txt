@@ -1,0 +1,24 @@
+! Title: YouTube 2024 Experience
+! Expires: 7 days
+! Description: I've decided to take it upon myself to simulate your YouTube experience in 2024 by getting rid off elements that may be deemed 'unnecessary' by YouTube Team.
+! Homepage: https://github.com/RedSQL/personal-scripts-and-misc
+! Licence: https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
+
+! Remove basic interactions - Such things include Likes/Dislikes, Sharing, Playlist saving and Reporting! All those could be used to *harass* the creator! Getting rid of them will bring content creators nothing but joy and peace from being bullied!
+www.youtube.com###menu-container > .ytd-video-primary-info-renderer.style-scope
+
+! Remove comment section - Team already tried removing dislikes from comments but the comments have not improved in their quality! Seems like comments, as an idea, is a failure. Let's remove it!
+www.youtube.com##.ytd-comments.style-scope
+
+! Remove view count - You could potentially see that a video may not be doing well! That's not good for content creator's well being! Let's get rid of that too!
+www.youtube.com###count > .ytd-video-primary-info-renderer.style-scope
+
+! Remove sub count - Are we seriously gonna let people to see how much subscribers a youtuber has?? Team already tried rectifying this with simplifying sub numbers but let's get rid of it altogether! This is for everyone's sake!
+www.youtube.com###owner-sub-count
+
+! Remove video description - Content creator could possibly inform their audience that they might be receiving a lot of negative feedback!.... Err... On some other site? In any case, creator communication is another source of negativity and let's cut it!
+www.youtube.com##ytd-expander.ytd-video-secondary-info-renderer.style-scope
+
+! Remove recommended section - Even though Team tries its best to not recommend people a contradictory type of content on something, let's be safe and remove this recommendation thing altogether!
+www.youtube.com###secondary
+
