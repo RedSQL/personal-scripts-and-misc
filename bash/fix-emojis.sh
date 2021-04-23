@@ -29,11 +29,8 @@ distro_check() {
 		exit
 	fi
 }
-for arg in "$@"
-do
-	if [ "$arg" == "--no-distrocheck" ]; then
-		fix_font
-		exit
-	fi
-done
+if [[ "$@" == "--no-distrocheck" ]]; then
+	fix_font
+	exit
+fi
 distro_check
