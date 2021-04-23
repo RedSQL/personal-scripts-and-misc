@@ -27,7 +27,7 @@ distro_check() {
 		if [ ! -z "$konsole_exists" ]; then
 			konsole -e sudo pacman -S noto-fonts-emoji
 		else
-			kdesu -t -c xterm -e 'sudo pacman -S noto-fonts-emoji'
+			xterm -e sudo pacman -S noto-fonts-emoji
 		fi
 		fix_font
 	else
