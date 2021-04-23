@@ -21,14 +21,8 @@ fix_font() {
 distro_check() {
 	pacman_exists=$(command -v pacman)
 	if [ ! -z "$pacman_exists" ]; then
-		konsole_exists=$(command -v konsole)
 		echo "Enter the password to execute the package manager which will install the emoji font package."
-		# this is terrible
-		if [ ! -z "$konsole_exists" ]; then
-			konsole -e sudo pacman -S noto-fonts-emoji
-		else
-			xterm -e sudo pacman -S noto-fonts-emoji
-		fi
+		sudo pacman -S noto-fonts-emoji
 		fix_font
 	else
 		echo "You don't appear to be running a pacman-based distro. Please install 'noto-fonts-emoji' (or however that package is named within your distros repos) with your package manager manually. After that, run this script with '--no-distrocheck'."
