@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # i tested this script to the best of my abilities but if there are still issues lmk :p
 fix_font() {
-	if [ -d "~/.config/fontconfig" ]; then
-		mkdir ~/.config/fontconfig
+	if [ ! -d "$HOME/.config/fontconfig" ]; then
+		mkdir $HOME/.config/fontconfig
 	fi
-	cd ~/.config/fontconfig/
+	cd $HOME/.config/fontconfig/ || exit
 	if [ -e "fonts.conf" ]; then
 		echo "You have fonts.conf in your ~/.config/fontconfig. You might want to back this one up if I screw something up. Rename it to something else (mv ~/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf.backup)."
 		exit
@@ -20,7 +20,7 @@ fix_font() {
 }
 distro_check() {
 	pacman_exists=$(command -v pacman)
-	if [ ! -z "$pacman_exists" ]; then
+	if [ -n "$pacman_exists" ]; then
 		echo "Enter the password to execute the package manager which will install the emoji font package."
 		sudo pacman -S noto-fonts-emoji
 		fix_font
