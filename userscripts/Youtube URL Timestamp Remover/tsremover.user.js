@@ -2,7 +2,7 @@
 // @name        Hardcoded URL Timestamp Remover
 // @namespace   github.com/RedSQL/personal-scripts-and-misc
 // @homepageURL https://github.com/RedSQL/personal-scripts-and-misc/
-// @match       https://www.youtube.com/watch*
+// @match       https://www.youtube.com/*
 // @grant       none
 // @version     1.0.0
 // @author      RedSQL (RedEclipse)
@@ -11,7 +11,7 @@
 // ==/UserScript==
 ;(() => {
   'use strict'
-    if(location.search.includes("&t=")) {
+    if(location.search.includes("&t=") && location.pathname == "/watch") {
       let cleanurl = location.href.split("&");
       cleanurl.splice(cleanurl.indexOf('t='), 1);
       location.replace(cleanurl.join("&"));
