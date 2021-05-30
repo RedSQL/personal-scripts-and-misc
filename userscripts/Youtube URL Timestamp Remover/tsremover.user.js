@@ -18,6 +18,7 @@
       cleanurl.splice(cleanurl.indexOf('t='), 1);
       location.replace(cleanurl.join("&"));
     }
+  }
   setInterval(function() {
     clearurlfunc();
   }, 1000);
