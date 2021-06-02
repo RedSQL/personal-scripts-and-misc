@@ -10,7 +10,6 @@
 // @license     MIT (But see for the latest license here: github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE)
 // @run-at      document-start
 // ==/UserScript==
-// Non-working timestamp remover - should have triggered on click but does not work when clicked on links.
 ;(() => {
   'use strict'
   var lasturl = location.search;
