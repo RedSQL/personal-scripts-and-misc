@@ -8,11 +8,9 @@ args = parser.parse_args()
 def listString(stringtolist):
     if len(stringtolist) == 0 or stringtolist == "":
         print("Nothing to work with.")
-        exit
-    numOfChar = 1 # 1 for readability
-    for x in range(len(stringtolist)):
-        print(f"{numOfChar}. {list(stringtolist)[x]}")
-        numOfChar += 1
+        return
+    for (x,i) in enumerate(stringtolist, 1):
+        print(f"{x}. {i}")
 
 if not args.stringlist:
     print("Separate each string with '|' if you want multiple strings done. (No spaces before and after '|' !)")
