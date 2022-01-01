@@ -15,8 +15,8 @@ than navigating around in a windows-like explorer, like one in wine.''',
 formatter_class=argparse.RawTextHelpFormatter)
 
 parser.add_argument("path", type=str, nargs="?", help="Unix path to convert (Optional, will be asked to enter path when script runs)")
-parser.add_argument("--drive", type=str, default="Z", help="Drive letter to prefix the converted path with (default: Z)")
-parser.add_argument("--looplock", action=argparse.BooleanOptionalAction, default=False, help="After processing first query, do not exit the script and ask for next input.")
+parser.add_argument("-d", "--drive", type=str, default="Z", help="Drive letter to prefix the converted path with (default: Z)")
+parser.add_argument("-l", "--looplock", action=argparse.BooleanOptionalAction, default=False, help="After processing first query, do not exit the script and ask for next input.")
 args = parser.parse_args()
 
 def proc_path_input(u_path, drive) -> str:
