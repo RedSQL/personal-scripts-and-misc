@@ -33,8 +33,10 @@ def proc_path_input(u_path, drive) -> str:
 	w_path = u_path.replace("/", "\\")
 	w_path = f"{drive}:\\" + str(w_path)
 	return w_path
-print(proc_path_input(args.path, args.drive))
+	
 if args.looplock == True:
 	while True:
 		print(proc_path_input(None, args.drive))
- 
+
+if __name__ == "__main__":
+	print(proc_path_input(args.path, args.drive))
