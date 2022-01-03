@@ -3,7 +3,7 @@
 This folder contains all my KServices5 utilities that I have written for personal use.
 
 ## Service Menus
-### getFilePath.desktop
+### [getFilePath.desktop](https://github.com/RedSQL/personal-scripts-and-misc/blob/master/kservices5/ServiceMenus/getFilePath.desktop)
 
 This service menu contains options to copy file paths, file names and converted (unix -> windows) file paths into clipboard on Wayland.
 
