@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/octet-stream;inode/directory;
+Actions=w_copyFilePath;w_copyFileName;w_copyFilePathAndConvert;
+X-KDE-Submenu=Red Toolbox
+
+[Desktop Action w_copyFilePath]
+Name=Copy file path
+Icon=background
+Exec=/usr/bin/bash -c 'wl-copy "%u";'
+
+[Desktop Action w_copyFileName]
+Name=Copy file name
+Icon=background
+Exec=/usr/bin/bash -c 'wl-copy $(basename "%u");'
+
+[Desktop Action w_copyFilePathAndConvert]
+Name=Convert file path to windows AND copy
+Icon=background
+Exec=/usr/bin/bash -c 'wl-copy $(python $HOME/scripts/automation/convunix2nt.py "%u")'
