@@ -17,6 +17,8 @@ formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument("path", type=str, nargs="?", help="Unix path to convert (Optional, will be asked to enter path when script runs)")
 parser.add_argument("-d", "--drive", type=str, default="Z", help="Drive letter to prefix the converted path with (default: Z)")
 parser.add_argument("-l", "--looplock", action=argparse.BooleanOptionalAction, default=False, help="After processing first query, do not exit the script and ask for next input.")
+parser.add_argument("-w", "--wrap", action=argparse.BooleanOptionalAction, default=False, help="Wrap the processed path in quotation marks.")
+parser.add_argument("-c", "--wrap-char", type=str, default="\"", help="Redefine a wrapping character for --wrap option. (default: \")")
 args = parser.parse_args()
 
 def proc_path_input(u_path, drive) -> str:
@@ -31,7 +33,9 @@ def proc_path_input(u_path, drive) -> str:
 		while u_path.startswith("/"):
 			u_path = u_path[1:len(u_path)]
 	w_path = u_path.replace("/", "\\")
-	w_path = f"{drive}:\\" + str(w_path)
+	w_path = f"{drive.upper()}:\\" + str(w_path)
+	if args.wrap == True:
+		w_path = args.wrap_char + w_path + args.wrap_char
 	return w_path
 	
 if args.looplock == True:
