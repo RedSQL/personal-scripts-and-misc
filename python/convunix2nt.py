@@ -39,8 +39,12 @@ def proc_path_input(u_path, drive) -> str:
 	return w_path
 	
 if args.looplock == True:
-	while True:
-		print(proc_path_input(None, args.drive))
+	try:
+		while True:
+			print(proc_path_input(None, args.drive))
+	except KeyboardInterrupt:
+		print("\nScript interrupted, exiting...")
+		import sys; sys.exit(130)
 
 if __name__ == "__main__":
 	print(proc_path_input(args.path, args.drive))
