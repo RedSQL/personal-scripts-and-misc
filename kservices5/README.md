@@ -16,3 +16,5 @@ Requirements:
 If you want optional path conversion and copy to work, you will need my script and place it either into the path I have it at, or change the path to something else that is more convenient to you. 
 
 This should work on X11 too - just install `xclip` and replace all `wl-copy` instances with `xclip`. 
+
+Alternatively, if you want, you can opt for a... less elegant method of copying stuff - via a DBus! For that, you do not need `wl-clipboard`, and instead of calling `wl-copy` you just call: `dbus-send --type=method_call --dest=org.kde.klipper /klipper org.kde.klipper.klipper.setClipboardContents string:"%u"` instead.
