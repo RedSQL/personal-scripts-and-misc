@@ -22,6 +22,9 @@ parser.add_argument("-c", "--wrap-char", type=str, default="\"", help="Redefine 
 args = parser.parse_args()
 
 def proc_path_input(u_path, drive) -> str:
+	if args.wrap_char != "\"" and args.wrap == False:
+		print("Heads Up: Looks like you have specified custom wrapping character but you have not enabled wrapping.")
+		print("To see wrapping changes, you also have to supply '-w' (or '--wrap')")
 	if not u_path:
 		user_input_path = ""
 		while not user_input_path:
