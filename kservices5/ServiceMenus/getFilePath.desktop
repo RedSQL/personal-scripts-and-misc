@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 MimeType=application/octet-stream;inode/directory;
-Actions=w_copyFilePath;w_copyFileName;w_copyFilePathAndConvert;
+Actions=w_copyFilePath;w_copyFileName;w_copyFilePathAndConvert;w_cfPathConvertAndWrap;w_cfPathConvertAndWrapSpace;
 X-KDE-Submenu=Red Toolbox
 
 [Desktop Action w_copyFilePath]
@@ -19,3 +19,13 @@ Exec=/usr/bin/env bash -c 'wl-copy $(basename "%u");'
 Name=Convert file path to windows AND copy
 Icon=background
 Exec=/usr/bin/env bash -c 'wl-copy $(python $HOME/scripts/automation/convunix2nt.py "%u")'
+
+[Desktop Action w_cfPathConvertAndWrap]
+Name=Convert file path to windows, copy, and wrap in quotes
+Icon=background
+Exec=/usr/bin/env bash -c 'wl-copy $(python $HOME/scripts/automation/convunix2nt.py -w "%u")'
+
+[Desktop Action w_cfPathConvertAndWrapSpace]
+Name=Convert file path to windows, copy, and ONLY wrap in quotes if space is present
+Icon=background
+Exec=/usr/bin/env bash -c 'wl-copy $(python $HOME/scripts/automation/convunix2nt.py -ws "%u")'
