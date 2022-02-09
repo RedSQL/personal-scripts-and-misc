@@ -18,6 +18,7 @@ parser.add_argument("path", type=str, nargs="?", help="Unix path to convert (Opt
 parser.add_argument("-d", "--drive", type=str, default="Z", help="Drive letter to prefix the converted path with (default: Z)")
 parser.add_argument("-l", "--looplock", action=argparse.BooleanOptionalAction, default=False, help="After processing first query, do not exit the script and ask for next input.")
 parser.add_argument("-w", "--wrap", action=argparse.BooleanOptionalAction, default=False, help="Wrap the processed path in quotation marks.")
+parser.add_argument("-s", "--space", action=argparse.BooleanOptionalAction, default=False, help="ONLY wrap the path if it contains a space character.")
 parser.add_argument("-c", "--wrap-char", type=str, default="\"", help="Redefine a wrapping character for --wrap option. (default: \")")
 args = parser.parse_args()
 
@@ -25,6 +26,9 @@ def proc_path_input(u_path, drive) -> str:
 	if args.wrap_char != "\"" and args.wrap == False:
 		print("Heads Up: Looks like you have specified custom wrapping character but you have not enabled wrapping.")
 		print("To see wrapping changes, you also have to supply '-w' (or '--wrap')")
+	if args.space == True and args.wrap == False:
+		print("Heads Up: You have enabled wrapping if path contains a space, but you did not enable wrapping itself.")
+		print("You have to supply BOTH -w (--wrap) AND -s (--space) arguments for it to work.")
 	if not u_path:
 		user_input_path = ""
 		while not user_input_path:
@@ -38,7 +42,13 @@ def proc_path_input(u_path, drive) -> str:
 	w_path = u_path.replace("/", "\\")
 	w_path = f"{drive.upper()}:\\" + str(w_path)
 	if args.wrap == True:
-		w_path = args.wrap_char + w_path + args.wrap_char
+		if args.space == True:
+			if " " in w_path:
+				w_path = args.wrap_char + w_path + args.wrap_char
+			else:
+				return w_path
+		else:
+			w_path = args.wrap_char + w_path + args.wrap_char
 	return w_path
 	
 if args.looplock == True:
