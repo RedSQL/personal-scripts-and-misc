@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 parser = argparse.ArgumentParser(description='''
 Converter of unix path to windows one
