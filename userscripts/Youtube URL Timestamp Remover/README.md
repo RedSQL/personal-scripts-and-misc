@@ -1,4 +1,5 @@
 # YouTube URL Timestamp Remover
+### [Install](https://raw.githubusercontent.com/RedSQL/personal-scripts-and-misc/master/userscripts/Youtube%20URL%20Timestamp%20Remover/tsremover.user.js)
 ## What is this?
 This is a URL Timestamp remover from YouTube links. If you ever used a user timestamped feature on YouTube, you may know that YouTube attaches a `t=[SECONDS]s` as a URL parameter, which lets YouTube player determine and identify at which point video should be started. 
 
