@@ -21,9 +21,14 @@ parser.add_argument("-l", "--looplock", action=argparse.BooleanOptionalAction, d
 parser.add_argument("-w", "--wrap", action=argparse.BooleanOptionalAction, default=False, help="Wrap the processed path in quotation marks.")
 parser.add_argument("-s", "--space", action=argparse.BooleanOptionalAction, default=False, help="ONLY wrap the path if it contains a space character.")
 parser.add_argument("-c", "--wrap-char", type=str, default="\"", help="Redefine a wrapping character for --wrap option. (default: \")")
+parser.add_argument("-o", "--omit-path", type=str, nargs="*", help="Names of the folders to be omitted from the path. Supply as the last argument.")
 args = parser.parse_args()
 
 def proc_path_input(u_path, drive) -> str:
+	if args.omit_path and not args.path:
+		print("Oops!")
+		print("Looks like the way arguments were supplied is invalid. Move the '-o'/'--omit-path' and everything after that argument to the end of the command.")
+		return
 	if args.wrap_char != "\"" and args.wrap == False:
 		print("Heads Up: Looks like you have specified custom wrapping character but you have not enabled wrapping.")
 		print("To see wrapping changes, you also have to supply '-w' (or '--wrap')")
@@ -35,6 +40,9 @@ def proc_path_input(u_path, drive) -> str:
 		while not user_input_path:
 			user_input_path = input("Input path to convert: ")
 		u_path = user_input_path
+	if args.omit_path:
+		for x in args.omit_path:
+			u_path = u_path.replace(f"/{x}","")
 	if not drive:
 		drive = "Z"
 	if u_path.startswith("/"):
@@ -61,4 +69,8 @@ if __name__ == "__main__":
 			print("\nScript interrupted, exiting...")
 			import sys; sys.exit(130)
 	else:
-		print(proc_path_input(args.path, args.drive))
+		result = proc_path_input(args.path, args.drive)
+		if result == None:
+			print("No path converted.")
+		else:
+			print(result)
