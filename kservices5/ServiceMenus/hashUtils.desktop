@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/octet-stream;inode/directory;
+Actions=get_sha1sum;get_sha256sum;get_sha512sum
+X-KDE-Submenu=Hash Utilities
+
+[Desktop Action get_sha1sum]
+Name=Copy SHA1 sum
+Icon=background
+Exec=/usr/bin/env bash -c "wl-copy $(sha1sum "%u" | awk '{ print $1 }')"
+
+[Desktop Action get_sha256sum]
+Name=Copy SHA256 sum
+Icon=background
+Exec=/usr/bin/env bash -c "wl-copy $(sha256sum "%u" | awk '{ print $1 }')"
+
+[Desktop Action get_sha512sum]
+Name=Copy SHA512 sum
+Icon=background
+Exec=/usr/bin/env bash -c "wl-copy $(sha512sum "%u" | awk '{ print $1 }')"
