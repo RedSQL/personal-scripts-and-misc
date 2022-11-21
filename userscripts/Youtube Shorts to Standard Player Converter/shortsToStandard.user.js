@@ -4,17 +4,17 @@
 // @homepageURL https://github.com/RedSQL/personal-scripts-and-misc/
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.0.0
+// @version     1.0.1
 // @author      RedSQL (RedEclipse)
 // @description Replaces '/shorts' part of URL to '/watch?v=' in order to get original player for shorts videos.
-// @license     MIT (But see for the latest license here: github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE)
+// @license     https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
 // @run-at      document-start
 // ==/UserScript==
 ;(() => {
   'use strict'
   var lastURL = location.href;
   function clearUrlFunc() {  
-    if(location.href.includes("/shorts")) {
+    if(location.href.includes("/shorts") && !(location.href.includes("@") || location.href.includes("/c/"))) {
       let vidID = location.href.substr(31); // video id starts here
       let cleanURL = 'https://www.youtube.com/watch?v=' + vidID;
       location.replace(cleanURL);
