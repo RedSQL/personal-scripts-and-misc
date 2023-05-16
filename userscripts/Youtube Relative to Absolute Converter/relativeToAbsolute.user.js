@@ -4,7 +4,7 @@
 // @homepageURL https://github.com/RedSQL/personal-scripts-and-misc/
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.0.2
+// @version     1.0.3
 // @author      RedSQL (RedEclipse)
 // @description Replaces relative video timestamp from the video description to absolute.
 // @license     https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
@@ -17,8 +17,13 @@
     if(location.pathname == "/watch") {
       var pageLoadWait = setInterval(function () {
         let desc_inner = document.getElementById("description-inner");
+        let date_absolute = document.querySelectorAll('tp-yt-paper-tooltip[for="info"].style-scope.ytd-watch-metadata #tooltip')[0].textContent.trim();
+        // in a goold old javascript fashion...
+        if (!date_absolute || date_absolute.length == 0) {
+          date_absolute = document.querySelectorAll('tp-yt-paper-tooltip[for="info"].style-scope.ytd-watch-metadata #tooltip')[0].outerText.trim();
+        }
         if(typeof(desc_inner) != 'undefined' && desc_inner != null) {
-          desc_inner.children[0].textContent = document.querySelectorAll('tp-yt-paper-tooltip[for="info"].style-scope.ytd-watch-metadata #tooltip')[0].textContent.trim();
+          desc_inner.children[0].textContent = date_absolute;
           clearInterval(pageLoadWait);
         } else {
           console.log("Page still not processed fully...");
