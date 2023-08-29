@@ -4,7 +4,7 @@
 // @homepageURL https://github.com/RedSQL/personal-scripts-and-misc/
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.0.5
+// @version     1.0.6
 // @author      RedSQL (RedEclipse)
 // @description Replaces relative video timestamp from the video description to absolute.
 // @license     https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
@@ -18,11 +18,10 @@
       var pageLoadWait = setInterval(function () {
         let desc_inner = document.getElementById("description-inner");
         let date_absolute = document.querySelectorAll('tp-yt-paper-tooltip[for="info"].style-scope.ytd-watch-metadata #tooltip')[0].textContent.trim();
-        // in a goold old javascript fashion...
         if (!date_absolute || date_absolute.length == 0) {
           date_absolute = document.querySelectorAll('tp-yt-paper-tooltip[for="info"].style-scope.ytd-watch-metadata #tooltip')[0].outerText.trim();
         }
-        if(typeof(desc_inner) != 'undefined' && desc_inner != null) {
+        if(typeof(desc_inner) != 'undefined' && desc_inner != null && date_absolute != null) {
           desc_inner.children[1].textContent = date_absolute;
           desc_inner.children[1].style.setProperty("font-weight",500);
           clearInterval(pageLoadWait);
