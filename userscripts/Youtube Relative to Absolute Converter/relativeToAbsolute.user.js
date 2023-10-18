@@ -4,7 +4,7 @@
 // @homepageURL https://github.com/RedSQL/personal-scripts-and-misc/
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.0.6
+// @version     1.0.7
 // @author      RedSQL (RedEclipse)
 // @description Replaces relative video timestamp from the video description to absolute.
 // @license     https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
@@ -16,12 +16,14 @@
   function makeAbsolute() {
     if(location.pathname == "/watch") {
       var pageLoadWait = setInterval(function () {
-        let desc_inner = document.getElementById("description-inner");
-        let date_absolute = document.querySelectorAll('tp-yt-paper-tooltip[for="info"].style-scope.ytd-watch-metadata #tooltip')[0].textContent.trim();
+        let desc_inner = document.getElementById("info-container");
+        let date_absolute = document.querySelectorAll('tp-yt-paper-tooltip.style-scope.ytd-watch-info-text')[0].textContent.trim();
         if (!date_absolute || date_absolute.length == 0) {
-          date_absolute = document.querySelectorAll('tp-yt-paper-tooltip[for="info"].style-scope.ytd-watch-metadata #tooltip')[0].outerText.trim();
+          date_absolute = document.querySelectorAll('tp-yt-paper-tooltip.style-scope.ytd-watch-info-text')[0].outerText.trim();
         }
         if(typeof(desc_inner) != 'undefined' && desc_inner != null && date_absolute != null) {
+          desc_inner.children[0].textContent = "";
+          desc_inner.children[2].textContent = "";
           desc_inner.children[1].textContent = date_absolute;
           desc_inner.children[1].style.setProperty("font-weight",500);
           clearInterval(pageLoadWait);
