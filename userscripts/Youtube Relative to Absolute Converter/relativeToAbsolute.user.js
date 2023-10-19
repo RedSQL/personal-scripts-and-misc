@@ -4,7 +4,7 @@
 // @homepageURL https://github.com/RedSQL/personal-scripts-and-misc/
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.0.8
+// @version     1.0.9
 // @author      RedSQL (RedEclipse)
 // @description Replaces relative video timestamp from the video description to absolute.
 // @license     https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
@@ -23,7 +23,7 @@
         }
         if(typeof(desc_inner) != 'undefined' && desc_inner != null && date_absolute != null) {
           desc_inner.textContent = date_absolute;
-          desc_inner.children[1].style.setProperty("font-weight",500);
+          desc_inner.style.setProperty("font-weight",500);
           clearInterval(pageLoadWait);
         } else {
           console.log("Page still not processed fully...");
