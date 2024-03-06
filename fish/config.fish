@@ -25,3 +25,10 @@ alias notify=notify_func
 # Syntax: `strr <args>`
 # Reverses string with Python
 alias strr=reverse_string
+
+abbr frog 'cd ~/.config/frogminer'
+# Abbreviations for systemctl service management
+abbr ustp 'systemctl stop --user'
+abbr ustr 'systemctl start --user'
+abbr sstp 'systemctl stop'
+abbr sstr 'systemctl start'
