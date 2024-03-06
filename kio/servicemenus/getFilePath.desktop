@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+ServiceTypes=KonqPopupMenu/Plugin
 MimeType=application/octet-stream;inode/directory;
 Actions=w_copyFilePath;w_copyFileName;w_copyFilePathAndConvert;w_cfPathConvertAndWrap;w_cfPathConvertAndWrapSpace;
 X-KDE-Submenu=Red Toolbox

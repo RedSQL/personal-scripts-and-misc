@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+ServiceTypes=KonqPopupMenu/Plugin
 MimeType=application/octet-stream;inode/directory;
 Actions=get_sha1sum;get_sha256sum;get_sha512sum
 X-KDE-Submenu=Hash Utilities
