@@ -4,7 +4,7 @@
 // @homepageURL https://github.com/RedSQL/personal-scripts-and-misc/
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.0.9
+// @version     1.1.0
 // @author      RedSQL (RedEclipse)
 // @description Replaces relative video timestamp from the video description to absolute.
 // @license     https://github.com/RedSQL/personal-scripts-and-misc/blob/master/LICENSE
@@ -38,6 +38,14 @@
         lasturl = location.search;
       }
     }, 200);
+  });
+  document.addEventListener("popstate", function() {
+    setTimeout(function(){
+      if(lasturl != location.search) {
+        makeAbsolute();
+        lasturl = location.search;
+      }
+    }, 2000);
   });
   makeAbsolute();
 })();
