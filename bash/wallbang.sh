@@ -37,7 +37,7 @@ get_setup_info() {
 	NUM_OF_DISPLAYS=$(kscreen-doctor -j | jq '.outputs | length')
 	for x in $(seq "$NUM_OF_DISPLAYS"); do
 		idx_zp=$((x-1))
-		match_cur_wp=$(qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.wallpaper $idx_zp | rg 'Image:' | head -n1 | cut -c8-)
+		match_cur_wp=$(qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.wallpaper $idx_zp | grep 'Image:' | head -n1 | cut -c8-)
 		if [[ -n "$match_cur_wp" ]]; then
 			for i in "${!safe_wp_array[@]}"; do
 				if [[ ${safe_wp_array[i]} = *"$match_cur_wp"* ]]; then
