@@ -26,7 +26,7 @@ function get_themes() {
 }
 get_themes || exit 1
 if [[ -n "$RT_THEMES" ]]; then
-	THEME_CHOICE=$(dialog --stdout --menu pick 16 65 1 $(echo "$RT_THEMES" | awk '{ printf $1; printf " "; printf $1; printf " " }'))
+	THEME_CHOICE=$(dialog --keep-tite --stdout --menu pick 16 65 1 $(echo "$RT_THEMES" | awk '{ printf $1; printf " "; printf $1; printf " " }'))
 	if [[ -n "$THEME_CHOICE" ]]; then
 		set_theme "$THEME_CHOICE" || exit 1
 	fi
