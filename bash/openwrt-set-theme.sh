@@ -11,7 +11,18 @@ function set_theme() {
 	ssh "$ROUTER_SSH" "uci set luci.main.mediaurlbase=\$(uci get $1) && uci commit || exit 1"
 }
 function get_themes() {
-	RT_THEMES=$(ssh "$ROUTER_SSH" "uci show luci.themes || exit 1" | awk -F= '/^luci\.themes\./{print $1}')
+	if [[ -f "/tmp/ost-luci-themes.txt" ]]; then
+		RT_THEMES=$(</tmp/ost-luci-themes.txt)
+		if [[ ! $(echo "$RT_THEMES" == *"luci.themes.Bootstrap"*) ]]; then
+			# I find it hard to believe that there won't be boostrap theme installed on an openwrt router. Let's not consider cache in this case.
+			echo "Warn: no bootstrap theme in ost-luci-themes, cache discarded."
+			RT_THEMES=$(ssh "$ROUTER_SSH" "uci show luci.themes || exit 1" | awk -F= '/^luci\.themes\./{print $1}')
+			echo "$RT_THEMES" > /tmp/ost-luci-themes.txt
+		fi
+	else
+		RT_THEMES=$(ssh "$ROUTER_SSH" "uci show luci.themes || exit 1" | awk -F= '/^luci\.themes\./{print $1}')
+		echo "$RT_THEMES" > /tmp/ost-luci-themes.txt
+	fi
 }
 get_themes || exit 1
 if [[ -n "$RT_THEMES" ]]; then
