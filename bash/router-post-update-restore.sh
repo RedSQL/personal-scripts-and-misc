@@ -46,6 +46,7 @@ ssh "$ROUTER_SSH" "mkdir /tmp/openwrt-restore"
 scp -r "packages/"*".apk" "$ROUTER_SSH":/tmp/openwrt-restore/
 scp $(/usr/bin/ls -1t "nlbwmon-backup-"*".tar.gz"| head -n1) "$ROUTER_SSH":/tmp/nlbw-restore.tar.gz
 ssh "$ROUTER_SSH" "apk add --allow-untrusted /tmp/openwrt-restore/*.apk"
+ssh "$ROUTER_SSH" "apk update"
 ssh "$ROUTER_SSH" "apk add ${RESTORE_PACKAGES[*]}"
 ssh "$ROUTER_SSH" "/usr/libexec/nlbwmon-action restore"
 popd || exit 0
